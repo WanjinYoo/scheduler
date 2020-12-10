@@ -2,7 +2,7 @@ import React from "react";
 import DayListItem from "components/DayListItem";
 
 
-export default function Button(props) {
+export default function dayList(props) {
   const daylist = props.days.map((items) => {
     return(
     <DayListItem 
