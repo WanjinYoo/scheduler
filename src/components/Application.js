@@ -4,7 +4,8 @@ import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment/index";
 import axios from "axios";
-import { getAppointmentsForDay } from "helpers/selectors";
+import { getAppointmentsForDay,getInterview,getInterviewersForDay } from "helpers/selectors";
+
 
 
 export default function Application(props) {
@@ -13,24 +14,88 @@ export default function Application(props) {
     {
       day: "Monday",
       days: [],
-      appointments: {}
+      appointments: {},
+      interviewers: {}
     }
   );
-  console.log(state.appointments);
+
+
+
   let dailyAppointments = [];
-  
   useEffect(() => {
     Promise.all([
       axios.get('http://localhost:8001/api/days'),
       axios.get('http://localhost:8001/api/appointments'),
       axios.get('http://localhost:8001/api/interviewers')
     ]).then((all) => {
-      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data}));
+      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
     })
   }, []);
 
+
+
+
+
+
+
   const setDay = day => setState({ ...state, day});
   dailyAppointments = getAppointmentsForDay(state,state.day);
+  const dailyInterviewers = getInterviewersForDay(state,state.day)
+
+  
+  function bookInterview(id, interview) {
+    console.log(interview)
+    return axios.put(`http://localhost:8001/api/appointments/${id}`,{interview})
+    .then((res) => {
+      const appointment = {
+        ...state.appointments[id],
+        interview: { ...interview }
+      };
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      setState({
+        ...state,
+        appointments
+      });
+    })
+  }
+  function deleteInterview(id) {
+    return axios.delete(`http://localhost:8001/api/appointments/${id}`, null)
+    .then((res) => {
+      const appointment = {
+        ...state.appointments[id],
+        interview: null
+      };
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      console.log(`wanjin`);
+      setState({
+        ...state,
+        appointments
+      });
+    })
+  }
+  
+  const schedule = dailyAppointments.map((appointment) => {
+    const interview = getInterview(state, appointment.interview);
+    //console.log(state.appointments)
+    return (
+      <Appointment
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+        interviewers = {dailyInterviewers}
+        bookInterview = {bookInterview}
+        deleteInterview = {deleteInterview}
+      />
+    );
+  });
+  
   return (
     <main className="layout">
       <section className="sidebar">
@@ -56,13 +121,8 @@ export default function Application(props) {
       </section>
       <section className="schedule">
       
-      { dailyAppointments.map((appointment) => {
-        return (<Appointment 
-          key={appointment.id} 
-          {...appointment}   />)
-      }) 
-      } 
-      <Appointment key="last" time="12pm" />
+      {schedule}
+      <Appointment key="last" time="5pm" />
       </section>
     </main>
     

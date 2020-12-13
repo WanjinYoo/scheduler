@@ -13,7 +13,7 @@ import Header from "components/Appointment/header";
 import Empty from "components/Appointment/Empty";
 import Show from "components/Appointment/show";
 import Confirm from "components/Appointment/confirm";
-import Delete from "components/Appointment/delete";
+import Delete from "components/Appointment/Saving";
 import Error from "components/Appointment/error";
 import Form from "components/Appointment/form";
 import { Fragment } from 'react'
