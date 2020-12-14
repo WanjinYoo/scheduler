@@ -9,6 +9,10 @@ const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 const SET_INTERVIEW = "SET_INTERVIEW";
 const SET_SPOTS = "SET_SPOTS";
 
+
+
+const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
 function reducer(state, action) {
   switch (action.type) {
     case SET_DAY:
@@ -50,6 +54,16 @@ const [state, dispatch] = useReducer(reducer,{
 });
 
   useEffect(() => {
+    socket.onmessage = message => {
+      getData();
+    }
+   return () => {
+    socket.close();
+    }
+  }, []);
+
+
+  const getData = () => {
     Promise.all([
       axios.get('http://localhost:8001/api/days'),
       axios.get('http://localhost:8001/api/appointments'),
@@ -62,6 +76,10 @@ const [state, dispatch] = useReducer(reducer,{
         interviewers: all[2].data
       })
     })
+  }
+
+  useEffect(() => {
+    getData();
   }, []);
 
 
@@ -90,7 +108,7 @@ const [state, dispatch] = useReducer(reducer,{
       const days = [
         ...state.days
       ]
-      days[getIdByDays(state.day)].spots -= 1; 
+     // days[getIdByDays(state.day)].spots -= 1; 
       dispatch({
         type: SET_INTERVIEW,
         appointments: appointments,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import "components/Application.scss";
 import DayList from "components/DayList";
@@ -18,7 +18,7 @@ export default function Application(props) {
   } = useApplicationData();
 
 
-  console.log(state);
+
   const dailyInterviewers = getInterviewersForDay(state,state.day);  
   const schedule = getAppointmentsForDay(state,state.day).map((appointment) => {
     return (
