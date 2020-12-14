@@ -18,7 +18,7 @@ export default function Application(props) {
   } = useApplicationData();
 
 
-
+  console.log(state);
   const dailyInterviewers = getInterviewersForDay(state,state.day);  
   const schedule = getAppointmentsForDay(state,state.day).map((appointment) => {
     return (
@@ -33,7 +33,7 @@ export default function Application(props) {
       />
     );
   });
-  console.log(state.days);
+
   
   return (
     <main className="layout">
