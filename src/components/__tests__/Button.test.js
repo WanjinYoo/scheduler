@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { render, cleanup, fireEvent, prettyDOM } from "@testing-library/react";
 
 import Button from "components/Button";
 
@@ -11,7 +11,8 @@ it("renders without crashing", () => {
 });
 
 it("renders its `children` prop as text", () => {
-  const { getByText } = render(<Button>Default</Button>);
+  const { container, getByText } = render(<Button>Default</Button>);
+  console.log(prettyDOM(container));
   expect(getByText("Default")).toBeInTheDocument();
 });
 

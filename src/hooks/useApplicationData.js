@@ -11,7 +11,7 @@ const SET_SPOTS = "SET_SPOTS";
 
 
 
-const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+//const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
 function reducer(state, action) {
   switch (action.type) {
@@ -53,14 +53,14 @@ const [state, dispatch] = useReducer(reducer,{
   interviewers: {}
 });
 
-  useEffect(() => {
-    socket.onmessage = message => {
-      getData();
-    }
-   return () => {
-    socket.close();
-    }
-  }, []);
+  // useEffect(() => {
+  //   socket.onmessage = message => {
+  //     getData();
+  //   }
+  //  return () => {
+  //   socket.close();
+  //   }
+  // }, []);
 
 
   const getData = () => {
