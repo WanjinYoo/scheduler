@@ -8,4 +8,5 @@ describe("appointment",() => {
   it("renders without crashing", () => {
     render(<Appointment />);
   });
+  
 })
