@@ -42,19 +42,19 @@ npm run cypress
 ```
 ## Final Product
  **No appointments**
-!["No appointments"](https://github.com/WanjinYoo/scheduler/blob/master/docs/empty.png)
+!["No appointments"](https://github.com/WanjinYoo/scheduler/blob/master/images/empty.png)
   **Form**
-!["Form"](https://github.com/WanjinYoo/scheduler/blob/master/docs/form.png)
+!["Form"](https://github.com/WanjinYoo/scheduler/blob/master/images/form.png)
  **Invalid input**
-!["Invalid input"](https://github.com/WanjinYoo/scheduler/blob/master/docs/errorhandling.png)
+!["Invalid input"](https://github.com/WanjinYoo/scheduler/blob/master/images/errorhandling.png)
  **Appoitnment Added**
-!["Appoitnment Added"](https://github.com/WanjinYoo/scheduler/blob/master/docs/added.png)
+!["Appoitnment Added"](https://github.com/WanjinYoo/scheduler/blob/master/images/added.png)
  **Confirmation Message**
-!["Confirmation Message"](https://github.com/WanjinYoo/scheduler/blob/master/docs/confirmation.png)
+!["Confirmation Message"](https://github.com/WanjinYoo/scheduler/blob/master/images/confirmation.png)
  **Deleted and remaing spot incremented by 1**
-!["Desktop version"](https://github.com/WanjinYoo/scheduler/blob/master/docs/deleted.png)
+!["Desktop version"](https://github.com/WanjinYoo/scheduler/blob/master/images/deleted.png)
   **Fully booked**
-!["Fully booked"](https://github.com/WanjinYoo/scheduler/blob/master/docs/fullybooked.png)
+!["Fully booked"](https://github.com/WanjinYoo/scheduler/blob/master/images/fullybooked.png)
 
 
 
