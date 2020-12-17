@@ -1,4 +1,13 @@
 # Interview Scheduler
+Interview Scheduler is a single-page that allows users to book an interview appointment through the app.
+
+ReactJS, WebSocket and SASS were used to design front-end part of the website. 
+UseReducer,UseEffect and UseState were used for state management.
+Node js, Express js and POSTGRES back-end for back-end part.
+The app is currently deployed on Netlify with its POSTGRES database server on Heroku.
+
+
+
 
 ## Setup
 
@@ -20,4 +29,9 @@ npm test
 
 ```sh
 npm run storybook
+```
+## Running Cypress Test
+
+```sh
+npm run cypress
 ```

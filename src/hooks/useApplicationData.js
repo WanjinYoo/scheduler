@@ -9,7 +9,7 @@ import reducer, {
 
 export default function useApplicationData() {
  
-//const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+const socket = new WebSocket("ws://wanjin-sheduler.herokuapp.com");
 
 const [state, dispatch] = useReducer(reducer,{
   day: "Monday",
@@ -18,14 +18,14 @@ const [state, dispatch] = useReducer(reducer,{
   interviewers: {}
 });
 
-  // useEffect(() => {
-  //   socket.onmessage = message => {
-  //     getData();
-  //   }
-  //  return () => {
-  //   socket.close();
-  //   }
-  // }, []);
+  useEffect(() => {
+    socket.onmessage = message => {
+      getData();
+    }
+   return () => {
+    socket.close();
+    }
+  }, []);
 
 
   const getData = () => {
