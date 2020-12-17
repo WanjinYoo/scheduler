@@ -13,4 +13,3 @@
 
 [build.environment]
   REACT_APP_API_BASE_URL = "https://wanjin-sheduler.herokuapp.com/"
-  REACT_APP_WEBSOCKET_URL = "ws://wanjin-sheduler.herokuapp.com/"

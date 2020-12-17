@@ -3,6 +3,7 @@ Interview Scheduler is a single-page that allows users to book an interview appo
 
 ReactJS, WebSocket and SASS were used to design front-end part of the website. 
 UseReducer,UseEffect and UseState were used for state management.
+WebSocket updates the website without refreshing.
 Node js, Express js and POSTGRES back-end for back-end part.
 The app is currently deployed on Netlify with its POSTGRES database server on Heroku.
 
