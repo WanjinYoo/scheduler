@@ -10,7 +10,7 @@ WebSocket updates the website without refreshing.
 Node js, Express js and POSTGRES back-end for back-end part.
 
 The app is currently deployed on Netlify with its POSTGRES database server on Heroku.
-(https://5fdb3f2c23c1bd0008594e41--admiring-curran-a773c7.netlify.app/)
+(https://5fdb4ff97aceef0007957bae--admiring-curran-a773c7.netlify.app/)
 
 80% test coverage from JEST
 
