@@ -9,7 +9,7 @@ import reducer, {
 
 export default function useApplicationData() {
  
-// const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+//const socket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
 const [state, dispatch] = useReducer(reducer,{
   day: "Monday",
@@ -30,9 +30,9 @@ const [state, dispatch] = useReducer(reducer,{
 
   const getData = () => {
     Promise.all([
-      axios.get('http://wanjin-sheduler.herokuapp.com/api/days'),
-      axios.get('http://wanjin-sheduler.herokuapp.com/api/appointments'),
-      axios.get('http://wanjin-sheduler.herokuapp.com/api/interviewers')
+      axios.get('./api/days'),
+      axios.get('./api/appointments'),
+      axios.get('./api/interviewers')
     ]).then((all) => {
       dispatch({
         type: SET_APPLICATION_DATA,
