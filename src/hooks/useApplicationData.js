@@ -19,7 +19,7 @@ const [state, dispatch] = useReducer(reducer,{
 });
 
   useEffect(() => {
-    const socket = new WebSocket("ws://wanjin-sheduler.herokuapp.com");
+    const socket = new WebSocket("wss://wanjin-sheduler.herokuapp.com");
     socket.onmessage = message => {
       getData();
     }
