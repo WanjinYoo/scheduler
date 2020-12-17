@@ -9,7 +9,7 @@ import reducer, {
 
 export default function useApplicationData() {
  
-const socket = new WebSocket("ws://wanjin-sheduler.herokuapp.com");
+
 
 const [state, dispatch] = useReducer(reducer,{
   day: "Monday",
@@ -19,6 +19,7 @@ const [state, dispatch] = useReducer(reducer,{
 });
 
   useEffect(() => {
+    const socket = new WebSocket("ws://wanjin-sheduler.herokuapp.com");
     socket.onmessage = message => {
       getData();
     }
