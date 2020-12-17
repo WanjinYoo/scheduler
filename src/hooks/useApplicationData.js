@@ -61,7 +61,7 @@ const [state, dispatch] = useReducer(reducer,{
 
   function bookInterview(id, interview, edit = false) {
 
-    return axios.put(`http://localhost:8001/api/appointments/${id}`,{interview})
+    return axios.put(`./api/appointments/${id}`,{interview})
     .then(() => {
       const appointment = {
         ...state.appointments[id],
@@ -89,7 +89,7 @@ const [state, dispatch] = useReducer(reducer,{
     })
   }
   function deleteInterview(id) {
-    return axios.delete(`http://localhost:8001/api/appointments/${id}`, null)
+    return axios.delete(`./api/appointments/${id}`, null)
     .then(() => {
       const appointment = {
         ...state.appointments[id],
