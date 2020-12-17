@@ -30,9 +30,9 @@ const [state, dispatch] = useReducer(reducer,{
 
   const getData = () => {
     Promise.all([
-      axios.get('/api/days'),
-      axios.get('/api/appointments'),
-      axios.get('/api/interviewers')
+      axios.get('http://wanjin-sheduler.herokuapp.com/api/days'),
+      axios.get('http://wanjin-sheduler.herokuapp.com/api/appointments'),
+      axios.get('http://wanjin-sheduler.herokuapp.com/api/interviewers')
     ]).then((all) => {
       dispatch({
         type: SET_APPLICATION_DATA,
