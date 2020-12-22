@@ -20,6 +20,7 @@ export default function Application(props) {
 
 
   const dailyInterviewers = getInterviewersForDay(state,state.day);  
+  // Interate through each appointment component to display 
   const schedule = getAppointmentsForDay(state,state.day).map((appointment) => {
     return (
       <Appointment
@@ -38,7 +39,6 @@ export default function Application(props) {
   return (
     <main className="layout">
       <section className="sidebar">
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
         <img
         className="sidebar--centered"
         src="images/logo.png"

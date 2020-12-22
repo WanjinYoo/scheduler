@@ -24,6 +24,7 @@ export default function Appointment(props) {
   const CONFIRM = "CONFIRM";
   const EDIT = "EDIT";
   const ERROR_SAVE = "ERROR"
+  //setting initial mode to show if scheudle has been created previously and empty if not.
   const { mode, transition, back } = UseVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -34,13 +35,14 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
+    // shows SAVING on the screen until it completes the entire saving process
     transition(SAVING);
     setMessage("SAVING");
     props.bookInterview(props.id,interview, edit)
     .then(() => transition(SHOW))
     .catch(error => transition(ERROR_SAVE,true));
   }
-
+  // shows DELETING on the screen until it completes the entire saving process
   const deleteSchedule = (id) => {
     transition(SAVING);
     setMessage("DELETING");
@@ -48,6 +50,7 @@ export default function Appointment(props) {
     .then(() => transition(EMPTY))
     .catch(error => transition(ERROR_SAVE,true));
   }
+  //Using websocket to follow up with recent changes to the app 
   useEffect(() => {
     if (props.interview && mode === EMPTY) {
      transition(SHOW);

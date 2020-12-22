@@ -17,7 +17,7 @@ const [state, dispatch] = useReducer(reducer,{
   appointments: {},
   interviewers: {}
 });
-
+  // establish a socket server to update the website in real time.
   useEffect(() => {
     const socket = new WebSocket("wss://wanjin-sheduler.herokuapp.com");
     socket.onmessage = message => {
@@ -28,7 +28,7 @@ const [state, dispatch] = useReducer(reducer,{
     }
   }, []);
 
-
+   // fetching data from backend end points.
   const getData = () => {
     Promise.all([
       axios.get('./api/days'),
@@ -59,7 +59,7 @@ const [state, dispatch] = useReducer(reducer,{
     const week = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
     return week.indexOf(day);
   }
-
+//set a new state to trigger a re-render, also updates the database
   function bookInterview(id, interview, edit = false) {
 
     return axios.put(`./api/appointments/${id}`,{interview})
@@ -89,6 +89,7 @@ const [state, dispatch] = useReducer(reducer,{
    
     })
   }
+  //set a new state to trigger a re-render, also updates the database
   function deleteInterview(id) {
     return axios.delete(`./api/appointments/${id}`, null)
     .then(() => {
